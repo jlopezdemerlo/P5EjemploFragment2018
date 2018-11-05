@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_trabajar_fragmentos_dinamicos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="net.iesseveroochoa.demerlo.p5ejemplofragment.TrabajarFragmentosDinamicosActivity">
+    <TextView
+        android:text="@string/title_fragments_dinamicos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_titulo"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAlignment="center" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Parametro"
+            android:ems="10"
+            android:hint="Parametro a enviar al fragment"
+            android:id="@+id/et_Parametro" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <CheckBox
+        android:text="@string/ckb_Navegabilidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ckb_Navegabilidad" />
+
+    <Button
+        android:text="Crear Fragmento sin Parametro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_CrearFragmentoSinP" />
+    <Button
+        android:text="Crear Fragmento con Parametro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_CrearFragmentoConP" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frmLayoutContenedor">
+
+        <TextView
+            android:text="Sin Fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/tv_sinFragment" />
+    </FrameLayout>
+</LinearLayout>

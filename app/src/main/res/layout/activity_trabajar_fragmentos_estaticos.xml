@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_trabajar_fragmentos_estaticos"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="net.iesseveroochoa.demerlo.p5ejemplofragment.TrabajarFragmentosEstaticosActivity">
+
+    <TextView
+        android:text="@string/title_fragments_estaticos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_titulo"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAlignment="center" />
+
+    <TextView
+        android:text="Valor Seleccionado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_titleSeleccionado" />
+
+    <TextView
+        android:text="ninguno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_dark"
+        android:id="@+id/tv_seleccionColor" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="Enviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_Enviar" />
+        <!--- Para crear este control no olvidéis añadir al build.gradle (app) la dependencia de la libreria
+         de diseño  compile 'com.android.support:design:24.2.1'-->
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/et_datos"
+                android:layout_weight="1"
+                android:hint="@string/datos_a_enviar_al_fragment"/>
+        </android.support.design.widget.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+    android:background="@android:color/black"/>
+<!--- Incrustamos el fragment-->
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="net.iesseveroochoa.demerlo.p5ejemplofragment.fragment.EstaticoFragment"
+        android:id="@+id/frm_FramentEstatico"
+        tools:layout="@layout/fragment_estatico" />
+
+</LinearLayout>

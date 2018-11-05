@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">P5EjemploFragment</string>
+    <string name="title_fragments">Trabajar con Fragments</string>
+    <string name="datos_a_enviar_al_fragment">Datos a enviar al fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_envio">Se mostrará el envio de datos en este campo</string>
+    <string name="btnfragment_est_tico">Fragment Estático</string>
+    <string name="btn_fragment_din_mico">Fragment Dinámico</string>
+    <string name="title_fragments_estaticos">Fragmentos Estáticos</string>
+    <string name="title_fragments_dinamicos">Fragmentos Dinámicos</string>
+    <string name="tvNombreFragmenet">Soy el fragment %s</string>
+    <string name="ckb_Navegabilidad">Navegabilidad hacia atras con fragments</string>
+    <string name="error_fragmentestatico">" debe implementar OnMiSeleccionColorListener"</string>
+    <string name="btn_multiPanel">MultiPantalla</string>
+    <string-array name="array_colores">
+        <item>Azul</item>
+        <item>Negro</item>
+        <item>Amarillo</item>
+        <item>Verde</item>
+        <item>Rojo</item>
+    </string-array>
+</resources>
