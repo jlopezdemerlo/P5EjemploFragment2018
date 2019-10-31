@@ -44,7 +44,7 @@
             android:id="@+id/btn_Enviar" />
         <!--- Para crear este control no olvidéis añadir al build.gradle (app) la dependencia de la libreria
          de diseño  compile 'com.android.support:design:24.2.1'-->
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
@@ -55,7 +55,7 @@
                 android:id="@+id/et_datos"
                 android:layout_weight="1"
                 android:hint="@string/datos_a_enviar_al_fragment"/>
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
 
     </LinearLayout>

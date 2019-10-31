@@ -24,7 +24,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.iesseveroochoa.demerlo.p5ejemplofragment.MainActivity" />
-            >
         </activity>
     </application>
 
