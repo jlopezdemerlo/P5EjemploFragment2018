@@ -17,32 +17,31 @@ import androidx.fragment.app.FragmentTransaction;
 
 import net.iesseveroochoa.demerlo.p5ejemplofragment.fragment.DinamicoFragment;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class TrabajarFragmentosDinamicosActivity extends AppCompatActivity {
 
-    @BindView(R.id.tv_sinFragment)
+
     TextView tvSinFragment;
-    @BindView(R.id.et_Parametro)
     EditText etParametro;
-    @BindView(R.id.ckb_Navegabilidad)
     CheckBox ckbNavegabilidad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trabajar_fragmentos_dinamicos);
-        ButterKnife.bind(this);
+
+        etParametro = findViewById(R.id.et_Parametro);
+        ckbNavegabilidad = findViewById(R.id.ckb_Navegabilidad);
+        tvSinFragment = findViewById(R.id.tv_sinFragment);
+
     }
 
     /**
      * Creación de un fragmento sin el envío de parametros previo utilizando el
      * constructor directamente
      */
-    @OnClick(R.id.btn_CrearFragmentoSinP)
-    public void onClickCrearFragmentoSinP() {
+   // @OnClick(R.id.btn_CrearFragmentoSinP)
+    public void onClickCrearFragmentoSinP(View view) {
         //ocultamos el textview
         tvSinFragment.setVisibility(View.INVISIBLE);
         //OJO, que si no estamos utilizando la importacion v4 es getFragmetManager
@@ -66,8 +65,8 @@ public class TrabajarFragmentosDinamicosActivity extends AppCompatActivity {
      * para permitir enviar parametros al fragment antes del onCreate.
      *
      */
-    @OnClick(R.id.btn_CrearFragmentoConP)
-    public void onClickCrearFragmentoConP() {
+    //@OnClick(R.id.btn_CrearFragmentoConP)
+    public void onClickCrearFragmentoConP(View v) {
         //ocultamos el textview
         tvSinFragment.setVisibility(View.INVISIBLE);
         //OJO, que si no estamos utilizando la importacion v4 es getFragmetManager

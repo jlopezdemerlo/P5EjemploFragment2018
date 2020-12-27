@@ -5,17 +5,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import net.iesseveroochoa.demerlo.p5ejemplofragment.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnItemSelected;
 
 /**
  * Para reutilizar los componentes de la Interfaz de Usuario del Fragment, deberías crear cada uno
@@ -27,9 +24,8 @@ public class EstaticoFragment extends Fragment {
 
     //Utilizamos la libreria Butterknife par obtener la referencia del spiner
     //los datos los cargamos directamente de un array en string.xml
-    @BindView(R.id.sp_color)
+
     Spinner spColor;
-    @BindView(R.id.tv_envioDatos)
     TextView tvEnvioDatos;
 
     //Esta variable privada, apuntara a la Activity contenedora que implementara la interface
@@ -51,14 +47,36 @@ public class EstaticoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_estatico, container, false);
-        //Para usar la libreria Butterknife es necesario  realizar esta llamada. Fijaros que al
-        //ser un fragment, es necesario passr el view recien creado
-        ButterKnife.bind(this, view);
+
+        tvEnvioDatos = view.findViewById(R.id.tv_envioDatos);
+        spColor = view.findViewById(R.id.sp_color);
+
         //indicamos que retenga los valores ante reconstrucciones
        // this.setRetainInstance(true);
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        /*
+         * Es el evento del spinner de seleccion de elemento.
+         * Observar que realizamos la llamada del onColorSeleccionado del listener que en nuestro
+         * caso estara implementado en la Actividad*/
+        spColor.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String color;
+                color = (String) spColor.getItemAtPosition(i);
+                //mListener tendra una referencia a la Actividad, que a su vez tendra un metodo onColorSeleccionado
+                mListener.onColorSeleccionado(color);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
 
     /**
      * En este evento podemos obligar a la actividad que contenga este fragment a que implemente el
@@ -96,23 +114,7 @@ public class EstaticoFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * Es el evento del spinner de seleccion de elemento.
-     * Observar que realizamos la llamada del onColorSeleccionado del listener que en nuestro
-     * caso estara implementado en la Actividad
-     * Podemos crear tambien, mediante la libreria Butterknife los metodos a los eventos.
-     * En este caso para el spinner
-     *
-     * @param sp
-     * @param posicion
-     */
-    @OnItemSelected(R.id.sp_color)
-    public void spinnerItemSelected(Spinner sp, int posicion) {
-        String color;
-        color = (String) spColor.getItemAtPosition(posicion);
-        //mListener tendra una referencia a la Actividad, que a su vez tendra un metodo onColorSeleccionado
-        mListener.onColorSeleccionado(color);
-    }
+
 
     /**
      * Este metodo publico nos permitira enviar informacion al fragment. En nuestro caso

@@ -39,15 +39,18 @@
         android:id="@+id/ckb_Navegabilidad" />
 
     <Button
-        android:text="Crear Fragmento sin Parametro"
+        android:id="@+id/btn_CrearFragmentoSinP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_CrearFragmentoSinP" />
+        android:onClick="onClickCrearFragmentoSinP"
+        android:text="Crear Fragmento sin Parametro" />
+
     <Button
-        android:text="Crear Fragmento con Parametro"
+        android:id="@+id/btn_CrearFragmentoConP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_CrearFragmentoConP" />
+        android:onClick="onClickCrearFragmentoConP"
+        android:text="Crear Fragmento con Parametro" />
 
     <FrameLayout
         android:layout_width="match_parent"

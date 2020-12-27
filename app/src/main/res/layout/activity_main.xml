@@ -19,14 +19,17 @@
         android:textAlignment="center" />
 
     <Button
-        android:text="@string/btnfragment_est_tico"
+        android:id="@+id/btn_FEstatico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_FEstatico" />
+        android:onClick="onClickEstatico"
+        android:text="@string/btnfragment_est_tico" />
+
     <Button
-        android:text="@string/btn_fragment_din_mico"
+        android:id="@+id/btn_FDinamico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_FDinamico" />
+        android:onClick="onClickDinamico"
+        android:text="@string/btn_fragment_din_mico" />
 
 </LinearLayout>

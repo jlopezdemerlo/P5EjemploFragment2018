@@ -13,8 +13,6 @@ import androidx.fragment.app.Fragment;
 
 import net.iesseveroochoa.demerlo.p5ejemplofragment.R;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 
 public class DinamicoFragment extends Fragment {
@@ -22,7 +20,6 @@ public class DinamicoFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
 
-    @BindView(R.id.tv_nombreFragment)
     TextView tvNombreFragment;
 
     // TODO: Rename and change types of parameters
@@ -69,7 +66,8 @@ La modificación de los views no puede ser en el onCreate, nos daría error
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dinamico, container, false);
-        ButterKnife.bind(this, view);
+
+        tvNombreFragment=view.findViewById(R.id.tv_nombreFragment);
         //mostramos el valor del parámetro en textview
         String stFragParametro=getResources().getString(R.string.tvNombreFragmenet);
         tvNombreFragment.setText(String.format(stFragParametro,mParam1));

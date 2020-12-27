@@ -12,11 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import net.iesseveroochoa.demerlo.p5ejemplofragment.fragment.EstaticoFragment;
 
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-
 /**
  * Esta Actividad mostrara mediante la inclusion de un fragment estatico como tenemos que comunicarnos con
  * el fragment.
@@ -27,14 +22,12 @@ import butterknife.OnClick;
 public class TrabajarFragmentosEstaticosActivity extends AppCompatActivity implements EstaticoFragment.OnMiSeleccionColorListener {
 
     //Creamos las referencias a los views mediante la libreria butterknife
-    @BindView(R.id.tv_seleccionColor)
+
     TextView tvSeleccionColor;
-    @BindView(R.id.et_datos)
     EditText etDatos;
     //    @BindView(R.id.fragment)
 //    EstaticoFragment fragment;
     EstaticoFragment fragment;
-    @BindView(R.id.btn_Enviar)
     Button btnEnviar;
 
     @Override
@@ -43,11 +36,16 @@ public class TrabajarFragmentosEstaticosActivity extends AppCompatActivity imple
         //PARA UTILIZAR EL PLUGING android-butterknife-zelezny pulsar con el boton drcho sobre la referencia al layout de la clase
         //R de abajo y seleccionar "Generate"
         setContentView(R.layout.activity_trabajar_fragmentos_estaticos);
-        //necesario para utilizar butterknife
-        ButterKnife.bind(this);
+
         //buscamos la referencia del fragmento por el id asignado en el layout
         fragment = (EstaticoFragment) getSupportFragmentManager().findFragmentById(R.id.frm_FramentEstatico);
       //  btnEnviar.requestFocus();
+
+        tvSeleccionColor = findViewById(R.id.tv_seleccionColor);
+        btnEnviar = findViewById(R.id.btn_Enviar);
+        etDatos = findViewById(R.id.et_datos);
+        btnEnviar.setOnClickListener(v->onClick());
+
     }
 
     @Override
@@ -74,7 +72,7 @@ public class TrabajarFragmentosEstaticosActivity extends AppCompatActivity imple
      * Nota: Aunque podriamos modificar directamente los valores de fragment, es preferible que se comporte
      * como una caja cerrada que expone su uso a las actividades mediante metodos publicos necesarios
      */
-    @OnClick(R.id.btn_Enviar)
+
     public void onClick() {
         fragment.setValor(etDatos.getText().toString());
         ocultarTeclado();

@@ -2,18 +2,15 @@ package net.iesseveroochoa.demerlo.p5ejemplofragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.btn_FEstatico)
-    Button btnFEstatico;
+   Button btnFEstatico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,15 +18,14 @@ public class MainActivity extends AppCompatActivity {
         //PARA UTILIZAR EL PLUGING android-butterknife-zelezny pulsar con el boton drcho sobre la referencia al layout de la clase
         //R de abajo y seleccionar "Generate"
         setContentView(R.layout.activity_main);
-        //necesario para utilizar butterknife
-        ButterKnife.bind(this);
+
     }
 
     /**
      * Mediante butterknife podemos referenciar al evento del boton
      */
-    @OnClick(R.id.btn_FEstatico)
-    public void onClickEstatico() {
+  //  @OnClick(R.id.btn_FEstatico)
+    public void onClickEstatico(View view) {
 
         Intent i;
         i = new Intent(MainActivity.this, TrabajarFragmentosEstaticosActivity.class);
@@ -37,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.btn_FDinamico)
-    public void onClickDinamico() {
+  //  @OnClick(R.id.btn_FDinamico)
+    public void onClickDinamico(View view) {
         Intent i;
         i = new Intent(MainActivity.this, TrabajarFragmentosDinamicosActivity.class);
         startActivity(i);
